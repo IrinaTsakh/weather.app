@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://kit.fontawesome.com/a387b1681f.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather.app</title>
+    <link rel="stylesheet" href="src/styles.css"/>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div class="container"> 
+      <div class="weather-app">
+        <form class = "search-form "id="search-form">
+          <div class="row">
+            
+      <div class="col=6">
+        <input type="search" placeholder="Type a city" id="city-input" autofocus ="on" autocomplete="off" class="form-control shadow-sm"/>
+      </div>
+      <div class="col=3">
+          <input
+          type="submit"
+          value="Search"
+          class="form-control btn btn-primary shadow-sm w-100"
+        />
+        </div>
+      <div class="col=3">
+          <button class="btn btn-success w-100"
+          id="current-button">Current</button>
+      </div>
+      </div>
+      </form>  
+      
+        <h1 id="city"></h1> <p id="country"></p>
+        <div class="row">
+          <div class = "col=6">
+            <ul>
+        <li id="today">Monday, 27 July 10:00</li>
+        <li id="description"></li>
+      </ul>
+      </div>
+      <div class = "col=6">
+      <ul>
+        <li>Humidity: <span id="humidity"></span>%</li>
+        <li>Wind: <span id="wind"></span>km/h</li>
+        <li>Feels like: <span id="feelsLike"></span>℃</li>
+         <li> <span class="temperature" id="temp"></span>
+          <span class="units">℃</li>
+          </ul>
+        </div>
+        </div>
+      <hr/>
+        <div class="container">
+  <div class="row column">
+    <div class="col">
+      <strong>Monday</strong>
+      <br>
+      🌧28℃
+    </div>
+    <div class="col">
+      <strong>Tuesday</strong>
+      <br>
+      🌧28℃
+    </div>
+    <div class="col">
+      <strong>Wednesday</strong>
+      <br>
+      🌤30℃
+    </div>
+     <div class="col">
+      <strong>Thursday</strong>
+      <br>
+      🌞31℃
+    </div>
+    <div class="col">
+      <strong>Friday</strong>
+      <br>
+     🌞32℃ 
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js">
+    </script>
+  </body>
+</html>
