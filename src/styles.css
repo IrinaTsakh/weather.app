@@ -45,3 +45,7 @@ li {
   font-weight: 400;
   line-height: 1;
 }
+.link {
+  text-align: center;
+  display: block;
+}
