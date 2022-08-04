@@ -37,6 +37,7 @@ let month = months[now.getMonth()];
 todayDate.innerHTML = `${day}, ${date} ${month} ${hours}:${minutes}`;
 
 function displayWeather(response) {
+  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#country").innerHTML = response.data.sys.country;
   document.querySelector("#temp").innerHTML = Math.round(
@@ -51,6 +52,12 @@ function displayWeather(response) {
   document.querySelector("#feelsLike").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
