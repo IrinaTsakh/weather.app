@@ -60,3 +60,10 @@ li:first-letter {
   top: -24px;
   font-size: 16px;
 }
+.active {
+  cursor: default;
+  color: black;
+}
+.active:hover {
+  text-decoration: none;
+}
