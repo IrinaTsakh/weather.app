@@ -36,6 +36,26 @@ let months = [
 let month = months[now.getMonth()];
 todayDate.innerHTML = `${day}, ${date} ${month} ${hours}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class= "row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+   <div class="row">
+    <div class="col">
+      <div class="forecast-date">${day}</div>
+      <img src="" alt="" width="42">
+    <div class="forecast-temp"><span class="forecast-temp-max">18°</span> 
+      <span class="forecast-temp-min">12°</span></div>
+    </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
@@ -114,3 +134,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Cherkasy");
+displayForecast();
