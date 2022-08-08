@@ -36,15 +36,14 @@ let months = [
 let month = months[now.getMonth()];
 todayDate.innerHTML = `${day}, ${date} ${month} ${hours}:${minutes}`;
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class= "row">`;
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  let forecastHTML = `<div class= "row">`;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       `
-   <div class="row">
     <div class="col">
       <div class="forecast-date">${day}</div>
       <img src="" alt="" width="42">
@@ -55,7 +54,11 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
+function getForecast(coordinates) {
+  let apiKey = "e473aefb4fda52d19cd3c413ba678f99";
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(displayForecast);
+}
 function displayWeather(response) {
   console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
@@ -78,6 +81,7 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
